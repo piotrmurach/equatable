@@ -7,13 +7,17 @@ Gem::Specification.new do |gem|
   gem.name          = "equatable"
   gem.version       = Equatable::VERSION
   gem.authors       = ["Piotr Murach"]
-  gem.email         = ["pmurach@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.email         = [""]
+  gem.description   = %q{}
+  gem.summary       = %q{}
+  gem.homepage      = "http://github.com/peter-murach/equatable"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
+
+  gem.add_development_dependency 'rspec'
+  gem.add_development_dependency 'rake'
+  gem.add_development_dependency 'yard'
 end
