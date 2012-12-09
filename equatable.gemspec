@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = Equatable::VERSION
   gem.authors       = ["Piotr Murach"]
   gem.email         = [""]
-  gem.description   = %q{}
-  gem.summary       = %q{}
+  gem.description   = %q{Allows ruby objects to implement equality comparison and inspection methods. By including this module, a class indicates that its instances have explicit general contracts for `hash`, `==` and `eql?` methods.}
+  gem.summary       = %q{Allows ruby objects to implement equality comparison and inspection methods.}
   gem.homepage      = "http://github.com/peter-murach/equatable"
 
   gem.files         = `git ls-files`.split($/)
