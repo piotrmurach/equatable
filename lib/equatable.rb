@@ -85,8 +85,9 @@ module Equatable
   # @api private
   def define_compare
     define_method(:compare?) do |comparator, other|
-      attrs = comparison_attrs || []
-      !attrs.find { |attr| send(attr).send(comparator, other.send(attr)) }
+      klass = self.class
+      attrs = klass.comparison_attrs || []
+      attrs.all? { |attr| send(attr).send(comparator, other.send(attr)) }
     end
   end
 
