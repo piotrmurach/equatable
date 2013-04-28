@@ -63,4 +63,4 @@ It is important that the attribute readers should allow for performing determini
 
 ## Copyright
 
-Copyright (c) 2012 Piotr Murach. See LICENSE for further details.
+Copyright (c) 2012-2013 Piotr Murach. See LICENSE for further details.
