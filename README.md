@@ -1,5 +1,5 @@
 # Equatable
-[![Build Status](https://secure.travis-ci.org/peter-murach/equatable.png?branch=master)][travis] [![Code Climate](https://codeclimate.com/badge.png)][codeclimate]
+[![Gem Version](https://badge.fury.io/rb/equatable.png)](http://badge.fury.io/rb/equatable) [![Build Status](https://secure.travis-ci.org/peter-murach/equatable.png?branch=master)][travis] [![Code Climate](https://codeclimate.com/badge.png)][codeclimate]
 
 [travis]: http://travis-ci.org/peter-murach/equatable
 [codeclimate]: https://codeclimate.com/github/peter-murach/equatable
@@ -51,7 +51,9 @@ It is assumed that your objects are value objects and the only values that affec
 
 ```
 
-It is important that the attribute readers should allow for performing deterministic computations on class instances.
+It is important that the attribute readers should allow for performing deterministic computations on class instances. Therefore you should avoid specifying attributes that depend on unreliable resources like IP address that require network access.
+
+Note that adding a extra attr reader to a subclass will violate the equivalence contract.
 
 ## Contributing
 
