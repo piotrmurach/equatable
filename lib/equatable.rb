@@ -130,7 +130,7 @@ module Equatable
     #
     # @api public
     def eql?(other)
-      instance_of?(other.class) and compare?(__method__, other)
+      instance_of?(other.class) && compare?(__method__, other)
     end
 
     # Compare two objects for equality based on their value
@@ -143,8 +143,7 @@ module Equatable
     #
     # @api public
     def ==(other)
-      return false unless self.class <=> other.class
-      compare?(__method__, other)
+      kind_of?(other.class) && compare?(__method__, other)
     end
 
   end # Methods

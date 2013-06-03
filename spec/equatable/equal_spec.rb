@@ -2,11 +2,11 @@
 
 require 'spec_helper'
 
-describe Equatable, '#eql?' do
+describe Equatable, '#==' do
   let(:name) { 'Value' }
   let(:value) { 11 }
 
-  let(:klass) {
+  let(:super_klass) {
     ::Class.new do
       include Equatable
 
@@ -18,9 +18,11 @@ describe Equatable, '#eql?' do
     end
   }
 
+  let(:klass) { Class.new(super_klass) }
+
   let(:object) { klass.new(value) }
 
-  subject { object.eql?(other) }
+  subject { object == other }
 
   context 'with the same object' do
     let(:other) { object }
@@ -28,7 +30,7 @@ describe Equatable, '#eql?' do
     it { should be_true }
 
     it 'is symmetric' do
-      should eql(other.eql?(object))
+      should eql(other == object)
     end
   end
 
@@ -38,7 +40,7 @@ describe Equatable, '#eql?' do
     it { should be_true }
 
     it 'is symmetric' do
-      should eql(other.eql?(object))
+      should eql(other == object)
     end
   end
 
@@ -47,8 +49,28 @@ describe Equatable, '#eql?' do
 
     it { should be_false }
 
+    it 'is not symmetric' do
+      should_not eql(other == object)
+    end
+  end
+
+  context 'with an equivalent object of a superclass' do
+    let(:other) { super_klass.new(value) }
+
+    it { should be_true }
+
+    it 'is not symmetric' do
+      should_not eql(other == object)
+    end
+  end
+
+  context 'with an object of another class' do
+    let(:other) { Class.new.new }
+
+    it { should be_false }
+
     it 'is symmetric' do
-      should eql(other.eql?(object))
+      should eql(other == object)
     end
   end
 end
