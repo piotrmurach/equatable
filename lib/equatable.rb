@@ -87,7 +87,7 @@ module Equatable
     define_method(:compare?) do |comparator, other|
       klass = self.class
       attrs = klass.comparison_attrs || []
-      attrs.all? { |attr| send(attr).send(comparator, other.send(attr)) }
+      attrs.all? { |attr| other.respond_to?(attr) && send(attr).send(comparator, other.send(attr)) }
     end
   end
 

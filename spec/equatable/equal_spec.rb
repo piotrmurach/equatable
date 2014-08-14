@@ -64,6 +64,12 @@ describe Equatable, '#==' do
     end
   end
 
+  context 'with an object with a different interface' do
+    let(:other) { Object.new }
+
+    it { should be_false }
+  end
+
   context 'with an object of another class' do
     let(:other) { Class.new.new }
 
