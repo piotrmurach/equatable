@@ -119,6 +119,7 @@ module Equatable
     end
   end
 
+  # The equality methods
   module Methods
     # Compare two objects for equality based on their value
     # and being an instance of the given class.
@@ -143,8 +144,7 @@ module Equatable
     #
     # @api public
     def ==(other)
-      kind_of?(other.class) && compare?(__method__, other)
+      is_a?(other.class) && compare?(__method__, other)
     end
-
   end # Methods
 end # Equatable
