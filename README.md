@@ -1,5 +1,5 @@
 # Equatable
-[![Gem Version](https://badge.fury.io/rb/equatable.png)](http://badge.fury.io/rb/equatable) [![Build Status](https://secure.travis-ci.org/peter-murach/equatable.png?branch=master)][travis] [![Code Climate](https://codeclimate.com/badge.png)][codeclimate]
+[![Gem Version](https://badge.fury.io/rb/equatable.png)](http://badge.fury.io/rb/equatable) [![Build Status](https://secure.travis-ci.org/peter-murach/equatable.png?branch=master)][travis] [![Code Climate](https://codeclimate.com/github/peter-murach/equatable.png)][codeclimate]
 
 [travis]: http://travis-ci.org/peter-murach/equatable
 [codeclimate]: https://codeclimate.com/github/peter-murach/equatable
@@ -27,33 +27,32 @@ Or install it yourself as:
 It is assumed that your objects are value objects and the only values that affect equality comparison are the ones specified by your attribute readers. Each attribute reader should be a significant field in determining objects values.
 
 ```ruby
-  class Value
-    include Equatable
+class Value
+  include Equatable
 
-    attr_reader :value
+  attr_reader :value
 
-    def initialize(value)
-      @value = value
-    end
+  def initialize(value)
+    @value = value
   end
+end
 
-  val1 = Value.new(11)
-  val2 = Value.new(11)
-  val3 = Value.new(13)
+val1 = Value.new(11)
+val2 = Value.new(11)
+val3 = Value.new(13)
 
-  val1 == val2            # => true
-  val1.hash == val2.hash  # => true
-  val1 eql? val2          # => true
+val1 == val2            # => true
+val1.hash == val2.hash  # => true
+val1 eql? val2          # => true
 
-  val1 == val3            # => false
-  val1.hash == val3.hash  # => false
-  val1 eql? val3          # => false
-
+val1 == val3            # => false
+val1.hash == val3.hash  # => false
+val1 eql? val3          # => false
 ```
 
 It is important that the attribute readers should allow for performing deterministic computations on class instances. Therefore you should avoid specifying attributes that depend on unreliable resources like IP address that require network access.
 
-Note that adding a extra attr reader to a subclass will violate the equivalence contract.
+Note that adding an extra attribute reader to a subclass will violate the equivalence contract.
 
 ## Contributing
 
@@ -65,4 +64,4 @@ Note that adding a extra attr reader to a subclass will violate the equivalence 
 
 ## Copyright
 
-Copyright (c) 2012-2013 Piotr Murach. See LICENSE for further details.
+Copyright (c) 2012-2014 Piotr Murach. See LICENSE for further details.
