@@ -1,10 +1,9 @@
-# -*- encoding: utf-8 -*-
+# encoding: utf-8
 
-require "equatable/version"
+require 'equatable/version'
 
 # Make it easy to define equality and hash methods.
 module Equatable
-
   # Hook into module inclusion.
   #
   # @param [Module] base
@@ -87,7 +86,9 @@ module Equatable
     define_method(:compare?) do |comparator, other|
       klass = self.class
       attrs = klass.comparison_attrs || []
-      attrs.all? { |attr| other.respond_to?(attr) && send(attr).send(comparator, other.send(attr)) }
+      attrs.all? do |attr|
+        other.respond_to?(attr) && send(attr).send(comparator, other.send(attr))
+      end
     end
   end
 
@@ -99,7 +100,7 @@ module Equatable
     define_method(:hash) do
       klass = self.class
       attrs = klass.comparison_attrs || []
-      ([klass] + attrs.map { |attr| send(attr)}).hash
+      ([klass] + attrs.map { |attr| send(attr) }).hash
     end
   end
 
@@ -119,7 +120,6 @@ module Equatable
   end
 
   module Methods
-
     # Compare two objects for equality based on their value
     # and being an instance of the given class.
     #
