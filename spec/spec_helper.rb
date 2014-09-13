@@ -1,11 +1,10 @@
-require 'rubygems'
+# encoding: utf-8
 
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-$LOAD_PATH.unshift(File.dirname(__FILE__))
-
-require 'rspec'
 require 'equatable'
 
 RSpec.configure do |config|
-  config.order = :rand
+  config.run_all_when_everything_filtered = true
+  config.filter_run :focus
+  config.order = 'random'
+  config.raise_errors_for_deprecations!
 end
