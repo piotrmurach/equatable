@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# encoding: utf-8
 
 require 'spec_helper'
 
@@ -25,30 +25,30 @@ describe Equatable, '#eql?' do
   context 'with the same object' do
     let(:other) { object }
 
-    it { should be_true }
+    it { is_expected.to eql(true) }
 
     it 'is symmetric' do
-      should eql(other.eql?(object))
+      is_expected.to eql(other.eql?(object))
     end
   end
 
   context 'with an equivalent object' do
     let(:other) { object.dup }
 
-    it { should be_true }
+    it { is_expected.to eql(true) }
 
     it 'is symmetric' do
-      should eql(other.eql?(object))
+      is_expected.to eql(other.eql?(object))
     end
   end
 
   context 'with an equivalent object of a subclass' do
     let(:other) { ::Class.new(klass).new(value) }
 
-    it { should be_false }
+    it { is_expected.to eql(false) }
 
     it 'is symmetric' do
-      should eql(other.eql?(object))
+      is_expected.to eql(other.eql?(object))
     end
   end
 end
