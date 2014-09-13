@@ -47,9 +47,11 @@ describe Equatable, '#==' do
   context 'with an equivalent object of a subclass' do
     let(:other) { ::Class.new(klass).new(value) }
 
-    it { is_expected.to eql(false) }
+    it { is_expected.to eql(true) }
 
     it 'is not symmetric' do
+      # LSP, any equality for type should work for subtype but
+      # not the other way
       is_expected.not_to eql(other == object)
     end
   end
@@ -57,7 +59,7 @@ describe Equatable, '#==' do
   context 'with an equivalent object of a superclass' do
     let(:other) { super_klass.new(value) }
 
-    it { is_expected.to eql(true) }
+    it { is_expected.to eql(false) }
 
     it 'is not symmetric' do
       is_expected.not_to eql(other == object)

@@ -143,7 +143,7 @@ module Equatable
     #
     # @api public
     def ==(other)
-      is_a?(other.class) && compare?(__method__, other)
+      other.is_a?(self.class) && compare?(__method__, other)
     end
   end # Methods
 end # Equatable
