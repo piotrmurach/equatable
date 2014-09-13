@@ -27,32 +27,63 @@ Or install it yourself as:
 It is assumed that your objects are value objects and the only values that affect equality comparison are the ones specified by your attribute readers. Each attribute reader should be a significant field in determining objects values.
 
 ```ruby
-class Value
+class Point
   include Equatable
 
-  attr_reader :value
+  attr_reader :x, :y
 
-  def initialize(value)
-    @value = value
+  def initialize(x, y)
+    @x, @y = x, y
   end
 end
 
-val1 = Value.new(11)
-val2 = Value.new(11)
-val3 = Value.new(13)
+point_1 = Point.new(1, 1)
+point_2 = Point.new(1, 1)
+point_3 = Point.new(1, 2)
 
-val1 == val2            # => true
-val1.hash == val2.hash  # => true
-val1 eql? val2          # => true
+point_1 == point_2            # => true
+point_1.hash == point_2.hash  # => true
+point_1.eql?(point_2)         # => true
+point_1.equal?(point_2)       # => false
 
-val1 == val3            # => false
-val1.hash == val3.hash  # => false
-val1 eql? val3          # => false
+point_1 == point_3            # => false
+point_1.hash == point_3.hash  # => false
+point_1.eql?(point_3)         # => false
+point_1.equal?(point_3)       # => false
+
+point_1.inspect  # => "#<Point x=1 y=1>"
 ```
+
+## Attributes
 
 It is important that the attribute readers should allow for performing deterministic computations on class instances. Therefore you should avoid specifying attributes that depend on unreliable resources like IP address that require network access.
 
-Note that adding an extra attribute reader to a subclass will violate the equivalence contract.
+## Subtypes
+
+**Equatable** ensures that any important property of a type holds for its subtypes. However, please note that adding an extra attribute reader to a subclass will violate the equivalence contract, namely, the superclass will be equal to the subclass but reverse won't be true. For example:
+
+```ruby
+class ColorPoint < Point
+  attr_reader :color
+
+  def initialize(x, y, color)
+    super(x, y)
+    @color = color
+  end
+end
+
+point = Point.new(1, 1)
+color_point = ColorPoint.new(1, 1, :red)
+
+point == color_point            # => true
+color_point == point            # => false
+
+point.hash == color_point.hash  # => false
+point.eql?(color_point)         # => false
+point.equal?(color_point)       # => false
+```
+
+The `ColorPoint` class demonstrates that extending a class with extra value property does not preserve the `equals` contract.
 
 ## Contributing
 
