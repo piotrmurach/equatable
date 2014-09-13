@@ -16,11 +16,9 @@ module Equatable
     super
     base.extend(self)
     base.class_eval do
-      define_comparison_attrs
       include Methods
       define_methods
     end
-    self
   end
 
   # Holds all attributes used for comparison.
@@ -41,7 +39,7 @@ module Equatable
   # @api public
   def attr_reader(*args)
     super
-    @comparison_attrs.concat(args)
+    comparison_attrs.concat(args)
   end
 
   # Copy the comparison_attrs into the subclass.
@@ -56,6 +54,18 @@ module Equatable
 
   private
 
+  # Define all methods needed for ensuring object's equality.
+  #
+  # @return [undefined]
+  #
+  # @api private
+  def define_methods
+    define_comparison_attrs
+    define_compare
+    define_hash
+    define_inspect
+  end
+
   # Define class instance #comparison_attrs as an empty array.
   #
   # @return [undefined]
@@ -63,17 +73,6 @@ module Equatable
   # @api private
   def define_comparison_attrs
     instance_variable_set('@comparison_attrs', [])
-  end
-
-  # Define all methods needed for ensuring object's equality.
-  #
-  # @return [undefined]
-  #
-  # @api private
-  def define_methods
-    define_compare
-    define_hash
-    define_inspect
   end
 
   # Define a #compare? method to check if the receiver is the same
@@ -85,7 +84,7 @@ module Equatable
   def define_compare
     define_method(:compare?) do |comparator, other|
       klass = self.class
-      attrs = klass.comparison_attrs || []
+      attrs = klass.comparison_attrs
       attrs.all? do |attr|
         other.respond_to?(attr) && send(attr).send(comparator, other.send(attr))
       end
@@ -99,7 +98,7 @@ module Equatable
   def define_hash
     define_method(:hash) do
       klass = self.class
-      attrs = klass.comparison_attrs || []
+      attrs = klass.comparison_attrs
       ([klass] + attrs.map { |attr| send(attr) }).hash
     end
   end
@@ -113,8 +112,8 @@ module Equatable
   def define_inspect
     define_method(:inspect) do
       klass = self.class
-      name = klass.name || klass.inspect
-      attrs = klass.comparison_attrs || []
+      name  = klass.name || klass.inspect
+      attrs = klass.comparison_attrs
       "#<#{name}#{attrs.map { |attr| " #{attr}=#{send(attr).inspect}" }.join}>"
     end
   end
