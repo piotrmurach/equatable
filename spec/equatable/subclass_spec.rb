@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# encoding: utf-8
 
 require 'spec_helper'
 
@@ -20,31 +20,29 @@ describe Equatable, 'subclass' do
     }
     let(:subclass) { ::Class.new(klass) }
 
-    before {
-      klass.stub(:name).and_return name
-    }
-
     subject { subclass.new(value) }
 
-    it { subclass.superclass.should == klass }
+    before { allow(klass).to receive(:name).and_return(name) }
 
-    it { should respond_to :value }
+    it { expect(subclass.superclass).to eq(klass) }
+
+    it { is_expected.to respond_to(:value) }
 
     describe '#inspect' do
-      it { subject.inspect.should eql('#<Value value=11>') }
+      it { expect(subject.inspect).to eql('#<Value value=11>') }
     end
 
     describe '#eql?' do
       context 'when objects are similar' do
         let(:other) { subject.dup }
 
-        it { subject.eql?(other).should be_true }
+        it { expect(subject.eql?(other)).to eql(true) }
       end
 
       context 'when objects are different' do
-        let(:other) { stub('other') }
+        let(:other) { double('other') }
 
-        it { subject.eql?(other).should be_false }
+        it { expect(subject.eql?(other)).to eql(false) }
       end
     end
 
@@ -52,15 +50,14 @@ describe Equatable, 'subclass' do
       context 'when objects are similar' do
         let(:other) { subject.dup }
 
-        it { (subject == other).should be_true }
+        it { expect(subject == other).to eql(true) }
       end
 
       context 'when objects are different' do
-        let(:other) { stub('other') }
+        let(:other) { double('other') }
 
-        it { (subject == other)}
+        it { expect(subject == other).to eql(false) }
       end
     end
   end
-
 end

@@ -1,9 +1,9 @@
-# -*- encoding: utf-8 -*-
+# encoding: utf-8
 
 require 'spec_helper'
 
 describe Equatable, '#include' do
-  let(:name) { 'Value' }
+  let(:name)   { 'Value' }
   let(:object) { described_class }
 
   context 'without attributes' do
@@ -12,33 +12,37 @@ describe Equatable, '#include' do
     subject { klass.new }
 
     before {
-      klass.stub(:name).and_return name
+      allow(klass).to receive(:name).and_return(name)
       klass.send(:include, object)
     }
 
-    it { should respond_to :compare? }
+    it { is_expected.to respond_to(:compare?) }
 
-    it { should be_instance_of klass }
+    it { is_expected.to be_instance_of(klass) }
+
+    it 'has no attribute names' do
+      expect(klass.comparison_attrs).to eq([])
+    end
 
     describe '#inspect' do
-      it { subject.inspect.should eql('#<Value>') }
+      it { expect(subject.inspect).to eql('#<Value>') }
     end
 
     describe '#hash' do
-      it { subject.hash.should eql([klass].hash) }
+      it { expect(subject.hash).to eql([klass].hash) }
     end
 
     describe '#eql?' do
       context 'when objects are similar' do
         let(:other) { subject.dup }
 
-        it { subject.eql?(other).should be_true }
+        it { expect(subject.eql?(other)).to eql(true) }
       end
 
       context 'when objects are different' do
-        let(:other) { stub('other') }
+        let(:other) { double('other') }
 
-        it { subject.eql?(other).should be_false }
+        it { expect(subject.eql?(other)).to eql(false) }
       end
     end
 
@@ -46,26 +50,26 @@ describe Equatable, '#include' do
       context 'when objects are similar' do
         let(:other) { subject.dup }
 
-        it { (subject == other).should be_true }
+        it { expect(subject == other).to eql(true) }
       end
 
       context 'when objects are different' do
-        let(:other) { stub('other') }
+        let(:other) { double('other') }
 
-        it { (subject == other)}
+        it { expect(subject == other).to eql(false) }
       end
     end
 
     context 'equivalence relation' do
-      let(:other) { subject.dup }
+      let(:other)   { subject.dup }
       let(:another) { other.dup }
 
       it 'is not equal to nil reference' do
-         expect(subject.eql?(nil)).to be_false
+        expect(subject.eql?(nil)).to eql(false)
       end
 
       it 'is reflexive' do
-        expect(subject.eql?(subject)).to be_true
+        expect(subject.eql?(subject)).to eql(true)
       end
 
       it 'is symmetric' do
@@ -92,35 +96,37 @@ describe Equatable, '#include' do
       end
     }
 
-    before {
-      klass.stub(:name).and_return name
-    }
+    before { allow(klass).to receive(:name).and_return(name) }
 
     subject { klass.new(value) }
 
     it 'dynamically defines #hash method' do
-      klass.method_defined?(:hash).should be_true
+      expect(klass.method_defined?(:hash)).to eql(true)
     end
 
     it 'dynamically defines #inspect method' do
-      klass.method_defined?(:inspect).should be_true
+      expect(klass.method_defined?(:inspect)).to eql(true)
     end
 
-    it { should respond_to :compare? }
+    it { is_expected.to respond_to(:compare?) }
 
-    it { should respond_to :eql? }
+    it { is_expected.to respond_to(:eql?) }
+
+    it 'has comparison attribute names' do
+      expect(klass.comparison_attrs).to eq([:value])
+    end
 
     describe '#eql?' do
       context 'when objects are similar' do
         let(:other) { subject.dup }
 
-        it { subject.eql?(other).should be_true }
+        it { expect(subject.eql?(other)).to eql(true) }
       end
 
       context 'when objects are different' do
-        let(:other) { stub('other') }
+        let(:other) { double('other') }
 
-        it { subject.eql?(other).should be_false }
+        it { expect(subject.eql?(other)).to eql(false) }
       end
     end
 
@@ -128,34 +134,34 @@ describe Equatable, '#include' do
       context 'when objects are similar' do
         let(:other) { subject.dup }
 
-        it { (subject == other).should be_true }
+        it { expect(subject == other).to eql(true) }
       end
 
       context 'when objects are different' do
-        let(:other) { stub('other') }
+        let(:other) { double('other') }
 
-        it { (subject == other).should be_false }
+        it { expect(subject == other).to eql(false) }
       end
     end
 
     describe '#inspect' do
-      it { subject.inspect.should eql('#<Value value=11>') }
+      it { expect(subject.inspect).to eql('#<Value value=11>') }
     end
 
     describe '#hash' do
-      it { subject.hash.should eql( ([klass] + [value]).hash) }
+      it { expect(subject.hash).to eql( ([klass] + [value]).hash) }
     end
 
     context 'equivalence relation' do
-      let(:other) { subject.dup }
+      let(:other)   { subject.dup }
       let(:another) { other.dup }
 
       it 'is not equal to nil reference' do
-         expect(subject.eql?(nil)).to be_false
+        expect(subject.eql?(nil)).to eql(false)
       end
 
       it 'is reflexive' do
-        expect(subject.eql?(subject)).to be_true
+        expect(subject.eql?(subject)).to eql(true)
       end
 
       it 'is symmetric' do
