@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = [""]
   gem.description   = %q{Allows ruby objects to implement equality comparison and inspection methods. By including this module, a class indicates that its instances have explicit general contracts for `hash`, `==` and `eql?` methods.}
   gem.summary       = %q{Allows ruby objects to implement equality comparison and inspection methods.}
-  gem.homepage      = "http://github.com/peter-murach/equatable"
+  gem.homepage      = "http://github.com/piotrmurach/equatable"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }

@@ -1,8 +1,12 @@
 # Equatable
-[![Gem Version](https://badge.fury.io/rb/equatable.png)](http://badge.fury.io/rb/equatable) [![Build Status](https://secure.travis-ci.org/peter-murach/equatable.png?branch=master)][travis] [![Code Climate](https://codeclimate.com/github/peter-murach/equatable.png)][codeclimate]
+[![Gem Version](https://badge.fury.io/rb/equatable.svg)][gem]
+[![Build Status](https://secure.travis-ci.org/piotrmurach/equatable.svg?branch=master)][travis]
+[![Code Climate](https://codeclimate.com/github/piotrmurach/equatable/badges/gpa.svg)][codeclimate]
+[![Coverage Status](https://codeclimate.com/github/piotrmurach/pastel-cli/badges/coverage.svg)][codeclimate]
 
-[travis]: http://travis-ci.org/peter-murach/equatable
-[codeclimate]: https://codeclimate.com/github/peter-murach/equatable
+[gem]: http://badge.fury.io/rb/equatable
+[travis]: http://travis-ci.org/piotrmurach/equatable
+[codeclimate]: https://codeclimate.com/github/piotrmurach/equatable
 
 Allows ruby objects to implement equality comparison and inspection methods.
 
