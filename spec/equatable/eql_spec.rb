@@ -1,8 +1,6 @@
 # encoding: utf-8
 
-require 'spec_helper'
-
-describe Equatable, '#eql?' do
+RSpec.describe Equatable, '#eql?' do
   let(:name) { 'Value' }
   let(:value) { 11 }
 
