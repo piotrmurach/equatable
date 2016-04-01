@@ -2,11 +2,14 @@
 [![Gem Version](https://badge.fury.io/rb/equatable.svg)][gem]
 [![Build Status](https://secure.travis-ci.org/piotrmurach/equatable.svg?branch=master)][travis]
 [![Code Climate](https://codeclimate.com/github/piotrmurach/equatable/badges/gpa.svg)][codeclimate]
-[![Coverage Status](https://codeclimate.com/github/piotrmurach/pastel-cli/badges/coverage.svg)][codeclimate]
+[![Coverage Status](https://coveralls.io/repos/github/piotrmurach/equatable/badge.svg)][coverage]
+[![Inline docs](http://inch-ci.org/github/piotrmurach/equatable.svg?branch=master)][inchpages]
 
 [gem]: http://badge.fury.io/rb/equatable
 [travis]: http://travis-ci.org/piotrmurach/equatable
 [codeclimate]: https://codeclimate.com/github/piotrmurach/equatable
+[coverage]: https://coveralls.io/github/piotrmurach/equatable
+[inchpages]: http://inch-ci.org/github/piotrmurach/equatable
 
 Allows ruby objects to implement equality comparison and inspection methods.
 
@@ -99,4 +102,4 @@ The `ColorPoint` class demonstrates that extending a class with extra value prop
 
 ## Copyright
 
-Copyright (c) 2012-2014 Piotr Murach. See LICENSE for further details.
+Copyright (c) 2012-2016 Piotr Murach. See LICENSE for further details.
