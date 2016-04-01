@@ -7,5 +7,5 @@ group :development do
   gem 'rspec', '~> 3.4.0'
   gem 'yard',  '~> 0.8.7'
   gem 'simplecov', '~> 0.11.2'
-  gem 'codeclimate-test-reporter', '~> 0.4.8'
+  gem 'coveralls', '~> 0.8.2'
 end

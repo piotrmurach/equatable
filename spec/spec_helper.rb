@@ -1,14 +1,12 @@
 # encoding: utf-8
 
-require 'equatable'
-
 if RUBY_VERSION > '1.9' and (ENV['COVERAGE'] || ENV['TRAVIS'])
   require 'simplecov'
-  require 'codeclimate-test-reporter'
+  require 'coveralls'
 
   SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
     SimpleCov::Formatter::HTMLFormatter,
-    CodeClimate::TestReporter::Formatter
+    Coveralls::SimpleCov::Formatter
   ]
 
   SimpleCov.start do
@@ -16,6 +14,8 @@ if RUBY_VERSION > '1.9' and (ENV['COVERAGE'] || ENV['TRAVIS'])
     add_filter 'spec'
   end
 end
+
+require 'equatable'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
