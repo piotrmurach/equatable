@@ -1,19 +1,22 @@
 # Equatable
+
 [![Gem Version](https://badge.fury.io/rb/equatable.svg)][gem]
 [![Build Status](https://secure.travis-ci.org/piotrmurach/equatable.svg?branch=master)][travis]
+[![Build status](https://ci.appveyor.com/api/projects/status/lsb02nm0g4c6guiu?svg=true)][appveyor]
 [![Code Climate](https://codeclimate.com/github/piotrmurach/equatable/badges/gpa.svg)][codeclimate]
 [![Coverage Status](https://coveralls.io/repos/github/piotrmurach/equatable/badge.svg)][coverage]
 [![Inline docs](http://inch-ci.org/github/piotrmurach/equatable.svg?branch=master)][inchpages]
 
 [gem]: http://badge.fury.io/rb/equatable
 [travis]: http://travis-ci.org/piotrmurach/equatable
+[appveyor]: https://ci.appveyor.com/project/piotrmurach/equatable
 [codeclimate]: https://codeclimate.com/github/piotrmurach/equatable
 [coverage]: https://coveralls.io/github/piotrmurach/equatable
 [inchpages]: http://inch-ci.org/github/piotrmurach/equatable
 
 Allows ruby objects to implement equality comparison and inspection methods.
 
-By including this module, a class indicates that its instances have explicit general contracts for `hash`, `==` and `eql?` methods. Specifically `eql?` contract requires that it implements an equivalence relation. By default each instance of the class is equal only to itself. This is a right behaviour when you have distinct objects. Howerver, it is the responsibility of any class to clearly define their equality. Failure to do so may prevent instances to behave as expected when for instance `Array#uniq` is invoked or when they are used as `Hash` keys.
+By including this module, a class indicates that its instances have explicit general contracts for `hash`, `==` and `eql?` methods. Specifically `eql?` contract requires that it implements an equivalence relation. By default each instance of the class is equal only to itself. This is a right behaviour when you have distinct objects. However, it is the responsibility of any class to clearly define their equality. Failure to do so may prevent instances to behave as expected when for instance `Array#uniq` is invoked or when they are used as `Hash` keys.
 
 ## Installation
 
@@ -102,4 +105,4 @@ The `ColorPoint` class demonstrates that extending a class with extra value prop
 
 ## Copyright
 
-Copyright (c) 2012-2016 Piotr Murach. See LICENSE for further details.
+Copyright (c) 2012 Piotr Murach. See LICENSE for further details.
