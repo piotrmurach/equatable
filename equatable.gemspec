@@ -10,6 +10,7 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{Extends Ruby objects with equality comparison and inspection methods.}
   spec.description   = %q{Extends Ruby objects with equality comparison and inspection methods. By including this module, a class indicates that its instances have explicit general contracts for `hash`, `==` and `eql?` methods.}
   spec.homepage      = "https://github.com/piotrmurach/equatable"
+  spec.license       = "MIT"
   if spec.respond_to?(:metadata=)
     spec.metadata = {
       "allowed_push_host" => "https://rubygems.org",
