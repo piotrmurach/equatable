@@ -21,9 +21,8 @@ Gem::Specification.new do |spec|
       "source_code_uri"   => spec.homepage
     }
   end
-  spec.files         = Dir['{lib,spec,examples}/**/*.rb']
-  spec.files        += Dir['tasks/*', 'equatable.gemspec']
-  spec.files        += Dir['README.md', 'CHANGELOG.md', 'LICENSE.txt', 'Rakefile']
+  spec.files         = Dir["lib/**/*"]
+  spec.extra_rdoc_files = ["README.md", "CHANGELOG.md", "LICENSE.txt"]
   spec.require_paths = ["lib"]
 
   spec.required_ruby_version = '>= 1.8.7'
