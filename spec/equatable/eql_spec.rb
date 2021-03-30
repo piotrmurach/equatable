@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-RSpec.describe Equatable, '#eql?' do
-  let(:name) { 'Value' }
+RSpec.describe Equatable, "#eql?" do
+  let(:name) { "Value" }
   let(:value) { 11 }
 
   let(:klass) {
@@ -20,32 +20,32 @@ RSpec.describe Equatable, '#eql?' do
 
   subject { object.eql?(other) }
 
-  context 'with the same object' do
+  context "with the same object" do
     let(:other) { object }
 
     it { is_expected.to eql(true) }
 
-    it 'is symmetric' do
+    it "is symmetric" do
       is_expected.to eql(other.eql?(object))
     end
   end
 
-  context 'with an equivalent object' do
+  context "with an equivalent object" do
     let(:other) { object.dup }
 
     it { is_expected.to eql(true) }
 
-    it 'is symmetric' do
+    it "is symmetric" do
       is_expected.to eql(other.eql?(object))
     end
   end
 
-  context 'with an equivalent object of a subclass' do
+  context "with an equivalent object of a subclass" do
     let(:other) { ::Class.new(klass).new(value) }
 
     it { is_expected.to eql(false) }
 
-    it 'is symmetric' do
+    it "is symmetric" do
       is_expected.to eql(other.eql?(object))
     end
   end

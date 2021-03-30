@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-RSpec.describe Equatable, 'subclass' do
-  let(:name) { 'Value' }
+RSpec.describe Equatable, "subclass" do
+  let(:name) { "Value" }
 
-  context 'when subclass' do
+  context "when subclass" do
     let(:value) { 11 }
     let(:klass) {
       ::Class.new do
@@ -26,33 +26,33 @@ RSpec.describe Equatable, 'subclass' do
 
     it { is_expected.to respond_to(:value) }
 
-    describe '#inspect' do
-      it { expect(subject.inspect).to eql('#<Value value=11>') }
+    describe "#inspect" do
+      it { expect(subject.inspect).to eql("#<Value value=11>") }
     end
 
-    describe '#eql?' do
-      context 'when objects are similar' do
+    describe "#eql?" do
+      context "when objects are similar" do
         let(:other) { subject.dup }
 
         it { expect(subject.eql?(other)).to eql(true) }
       end
 
-      context 'when objects are different' do
-        let(:other) { double('other') }
+      context "when objects are different" do
+        let(:other) { double("other") }
 
         it { expect(subject.eql?(other)).to eql(false) }
       end
     end
 
-    describe '#==' do
-      context 'when objects are similar' do
+    describe "#==" do
+      context "when objects are similar" do
         let(:other) { subject.dup }
 
         it { expect(subject == other).to eql(true) }
       end
 
-      context 'when objects are different' do
-        let(:other) { double('other') }
+      context "when objects are different" do
+        let(:other) { double("other") }
 
         it { expect(subject == other).to eql(false) }
       end
