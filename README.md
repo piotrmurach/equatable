@@ -1,14 +1,14 @@
 # Equatable
 
 [![Gem Version](https://badge.fury.io/rb/equatable.svg)][gem]
-[![Build Status](https://secure.travis-ci.org/piotrmurach/equatable.svg?branch=master)][travis]
+[![Actions CI](https://github.com/piotrmurach/equatable/workflows/CI/badge.svg?branch=master)][gh_actions_ci]
 [![Build status](https://ci.appveyor.com/api/projects/status/lsb02nm0g4c6guiu?svg=true)][appveyor]
 [![Code Climate](https://codeclimate.com/github/piotrmurach/equatable/badges/gpa.svg)][codeclimate]
 [![Coverage Status](https://coveralls.io/repos/github/piotrmurach/equatable/badge.svg)][coverage]
 [![Inline docs](http://inch-ci.org/github/piotrmurach/equatable.svg?branch=master)][inchpages]
 
 [gem]: http://badge.fury.io/rb/equatable
-[travis]: http://travis-ci.org/piotrmurach/equatable
+[gh_actions_ci]: https://github.com/piotrmurach/equatable/actions?query=workflow%3ACI
 [appveyor]: https://ci.appveyor.com/project/piotrmurach/equatable
 [codeclimate]: https://codeclimate.com/github/piotrmurach/equatable
 [coverage]: https://coveralls.io/github/piotrmurach/equatable

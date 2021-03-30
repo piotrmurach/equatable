@@ -1,21 +1,21 @@
 # frozen_string_literal: true
 
-if RUBY_VERSION > '1.9' and (ENV['COVERAGE'] || ENV['TRAVIS'])
-  require 'simplecov'
-  require 'coveralls'
+if ENV["COVERAGE"] == "true"
+  require "simplecov"
+  require "coveralls"
 
-  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
     SimpleCov::Formatter::HTMLFormatter,
     Coveralls::SimpleCov::Formatter
-  ]
+  ])
 
   SimpleCov.start do
-    command_name 'spec'
-    add_filter 'spec'
+    command_name "spec"
+    add_filter "spec"
   end
 end
 
-require 'equatable'
+require "equatable"
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -34,7 +34,7 @@ RSpec.configure do |config|
   config.warnings = true
 
   if config.files_to_run.one?
-    config.default_formatter = 'doc'
+    config.default_formatter = "doc"
   end
 
   config.profile_examples = 2
