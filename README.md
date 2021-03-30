@@ -103,6 +103,10 @@ The `ColorPoint` class demonstrates that extending a class with extra value prop
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
+## Code of Conduct
+
+Everyone interacting in the Equatable project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/piotrmurach/equatable/blob/master/CODE_OF_CONDUCT.md).
+
 ## Copyright
 
 Copyright (c) 2012 Piotr Murach. See LICENSE for further details.
