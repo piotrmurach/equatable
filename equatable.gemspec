@@ -24,8 +24,7 @@ Gem::Specification.new do |spec|
   spec.files         = Dir["lib/**/*"]
   spec.extra_rdoc_files = ["README.md", "CHANGELOG.md", "LICENSE.txt"]
   spec.require_paths = ["lib"]
-
-  spec.required_ruby_version = '>= 1.8.7'
+  spec.required_ruby_version = Gem::Requirement.new(">= 2.0.0")
 
   spec.add_development_dependency 'bundler', '>= 1.5.0'
   spec.add_development_dependency 'rspec', '~> 3.1'
