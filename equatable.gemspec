@@ -1,14 +1,14 @@
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'equatable/version'
+# frozen_string_literal: true
+
+require_relative "lib/equatable/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "equatable"
   spec.version       = Equatable::VERSION
   spec.authors       = ["Piotr Murach"]
-  spec.email         = ["me@piotrmurach.com"]
-  spec.summary       = %q{Extends Ruby objects with equality comparison and inspection methods.}
-  spec.description   = %q{Extends Ruby objects with equality comparison and inspection methods. By including this module, a class indicates that its instances have explicit general contracts for `hash`, `==` and `eql?` methods.}
+  spec.email         = ["piotr@piotrmurach.com"]
+  spec.summary       = %q{Provide equality comparison methods for objects based on their attributes.}
+  spec.description   = %q{Provide equality comparison methods for objects based on their attributes by generating implementations for the ==, eql?, hash and inspect methods.}
   spec.homepage      = "https://github.com/piotrmurach/equatable"
   spec.license       = "MIT"
   if spec.respond_to?(:metadata=)
