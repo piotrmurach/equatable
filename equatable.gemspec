@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
       "allowed_push_host" => "https://rubygems.org",
       "bug_tracker_uri"   => "#{spec.homepage}/issues",
       "changelog_uri"     => "#{spec.homepage}/blob/master/CHANGELOG.md",
-      "documentation_uri" => "https://www.rubydoc.info/gems/equatable",
+      "documentation_uri" => "https://www.rubydoc.info/github/piotrmurach/equatable",
       "homepage_uri"      => spec.homepage,
       "source_code_uri"   => spec.homepage
     }
