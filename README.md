@@ -14,15 +14,15 @@
 [coverage]: https://coveralls.io/github/piotrmurach/equatable
 [inchpages]: http://inch-ci.org/github/piotrmurach/equatable
 
-Allows ruby objects to implement equality comparison and inspection methods.
+> Provide equality comparison methods for objects based on their attributes.
 
-By including this module, a class indicates that its instances have explicit general contracts for `hash`, `==` and `eql?` methods. Specifically `eql?` contract requires that it implements an equivalence relation. By default each instance of the class is equal only to itself. This is a right behaviour when you have distinct objects. However, it is the responsibility of any class to clearly define their equality. Failure to do so may prevent instances to behave as expected when for instance `Array#uniq` is invoked or when they are used as `Hash` keys.
+By including this module, a class indicates that its instances have explicit general contracts for `==`, `eql?` and `hash` methods. Specifically the `eql?` contract requires that it implements an equivalence relation. By default, each instance of a class is equal only to itself. This is the right behaviour when you have distinct objects. However, it is the responsibility of any class to clearly define its equality. Failure to do so may prevent instances from behaving as expected when tested for uniqueness in Array#uniq or when used as Hash keys.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'equatable'
+    gem "equatable"
 
 And then execute:
 
