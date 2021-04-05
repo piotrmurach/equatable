@@ -1,5 +1,12 @@
 # Change log
 
+## [v0.7.0] - 2021-04-05
+
+### Changed
+* Change gemspec to remove test and rake files to reduce gem size
+* Change to remove bundler as a dev dependency and relax rspec upper constraint
+* Change to require Ruby 2.0 or higher
+
 ## [v0.6.1] - 2019-06-26
 
 ### Added
@@ -18,6 +25,7 @@
 
 * Initial implementation and release
 
+[v0.7.0]: https://github.com/piotrmurach/equatable/compare/v0.6.1...v0.7.0
 [v0.6.1]: https://github.com/piotrmurach/equatable/compare/v0.6.0...v0.6.1
 [v0.6.0]: https://github.com/piotrmurach/equatable/compare/v0.5.0...v0.6.0
 [v0.5.0]: https://github.com/piotrmurach/equatable/compare/v0.4.0...v0.5.0
