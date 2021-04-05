@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'equatable/version'
+require "equatable/version"
 
 # Make it easy to define equality and hash methods.
 module Equatable
@@ -72,7 +72,7 @@ module Equatable
   #
   # @api private
   def define_comparison_attrs
-    instance_variable_set('@comparison_attrs', [])
+    instance_variable_set("@comparison_attrs", [])
   end
 
   # Define a #compare? method to check if the receiver is the same
