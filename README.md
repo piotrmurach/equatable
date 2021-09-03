@@ -5,14 +5,14 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/lsb02nm0g4c6guiu?svg=true)][appveyor]
 [![Code Climate](https://codeclimate.com/github/piotrmurach/equatable/badges/gpa.svg)][codeclimate]
 [![Coverage Status](https://coveralls.io/repos/github/piotrmurach/equatable/badge.svg)][coverage]
-[![Inline docs](http://inch-ci.org/github/piotrmurach/equatable.svg?branch=master)][inchpages]
+[![Inline docs](https://inch-ci.org/github/piotrmurach/equatable.svg?branch=master)][inchpages]
 
-[gem]: http://badge.fury.io/rb/equatable
+[gem]: https://badge.fury.io/rb/equatable
 [gh_actions_ci]: https://github.com/piotrmurach/equatable/actions?query=workflow%3ACI
 [appveyor]: https://ci.appveyor.com/project/piotrmurach/equatable
 [codeclimate]: https://codeclimate.com/github/piotrmurach/equatable
 [coverage]: https://coveralls.io/github/piotrmurach/equatable
-[inchpages]: http://inch-ci.org/github/piotrmurach/equatable
+[inchpages]: https://inch-ci.org/github/piotrmurach/equatable
 
 > Provide equality comparison methods for objects based on their attributes.
 
